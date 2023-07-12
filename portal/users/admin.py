@@ -1,11 +1,10 @@
 from django.contrib import admin
-from .models import User
+from .models import Profile
 
-@admin.register(User)
+@admin.register(Profile)
 class Register(admin.ModelAdmin):
-    list_display = ['email', 'password']
+    list_display = [field.name for field in
+Profile._meta.get_fields()]
     
-
-# Register your models here.
 
 
