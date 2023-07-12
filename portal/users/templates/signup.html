@@ -2,7 +2,7 @@
 {% load static %}
 <html>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'users/register2.css' %}">
+    <link rel="stylesheet" href="{% static 'users/register.css' %}">
     <title> Registration page </title>
 
     <div id="grid-container"> <!-- Start of grid container-->
@@ -16,10 +16,12 @@
         <div id="body-item"> <!-- Start of body grid item -->
             <div class="container">
                 <!--<form name='form' method='post' action=''>-->
-                    <h2>Registration</h2>
-                    <h4>Fill in this form to join the network</h4>
+                    <h2>Create Account </h2>
+                    <h4>Already have an account?  
+                        <u><a href="#">Log in to account</u></a>
+                    </h4>
                     <hr>
-                    <form name='form' method='post' action='.'>
+                    <form name='form' method='post' action='.' enctype="multipart/form-data">
                         {% csrf_token %}
                         {{form.as_p}} 
                     <hr>
@@ -34,7 +36,8 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a class="active" href="#">Sign Up</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href=" /login/">Login</a></li>
+                    <li><a href=" /admin/">Admin</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </div>

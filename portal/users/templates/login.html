@@ -3,10 +3,8 @@
 <html>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'users/register.css' %}">
-    {% block title%}
-    <title> Registration page </title>
-    {%endblock%}
-    {% block content %}
+    <title> Login </title>
+
     <div id="grid-container"> <!-- Start of grid container-->
 
         <div id="header-item"> <!-- Start of header grid item -->
@@ -18,21 +16,28 @@
         <div id="body-item"> <!-- Start of body grid item -->
             <div class="container">
                 <!--<form name='form' method='post' action=''>-->
-                    <h2>Registration</h2>
-                    <h4>Fill in this form to join the network</h4>
+                    <h2>Log in to Account</h2>
+                    <h4>Need a CyPort account? 
+                        <u><a href="#"> Create an account</u></a>
+                    </h4>
                     <hr>
-                
-                    <button  name="btn" type="submit" class="registerbtn" value="btn">Register</button>
-             
-                <p>By creating an account, you agree to our <a href="#">Terms & Privacy</a></p>
+                    <form name='form' method='post' action='.' enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form.as_p}} 
+                    <hr>
+                    <p>By creating an account, you agree to our <a href="#">Terms & Privacy</a></p>
+                    <button type="submit" class="registerbtn">Register</button>
+                    <input type="reset">
+                </form>
             </div>
         </div>
 
             <div id="nav-item"> <!-- Start of menu grid item -->
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a class="active" href="#">Sign Up</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href=" /register">Sign Up</a></li>
+                    <li><a href="#" class="active">Login</a></li>
+                    <li><a href=" /admin/">Admin</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </div>
@@ -42,5 +47,4 @@
             
         </div>
     </div>
-    {% endblock %}
 </html>
